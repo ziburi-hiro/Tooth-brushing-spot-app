@@ -34,6 +34,7 @@ class _LoginPageState extends State<LoginPage> {
         padding: const EdgeInsets.symmetric(horizontal: 24),
         child: Center(
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               ///email
               Form(
@@ -53,6 +54,8 @@ class _LoginPageState extends State<LoginPage> {
                   },
                 ),
               ),
+
+              const SizedBox(height: 15,),
 
               ///password
               Form(
@@ -83,7 +86,18 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
 
-              const SizedBox(height: 20,),
+              const SizedBox(height: 15,),
+              
+              TextButton(
+                onPressed: (){},
+                child: Text('パスワードを忘れた方',style: GoogleFonts.mochiyPopOne(
+                  color: Colors.grey,
+                  decoration: TextDecoration.underline,
+                  decorationColor: Colors.grey,
+                ),),
+              ),
+
+              const SizedBox(height: 15,),
 
               SizedBox(
                 height: screenSize.height*0.05,
@@ -92,14 +106,41 @@ class _LoginPageState extends State<LoginPage> {
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.blueAccent,
                   ),
-                  onPressed: (){},
+                  onPressed: (){
+                    print('ログイン時の処理記載');
+                  },
                   child: Text('LOGIN',style: GoogleFonts.mochiyPopOne(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
                     color: Colors.white,
                   ),),
                 ),
+              ),
+
+              const SizedBox(height: 20,),
+
+              TextButton(
+                style: TextButton.styleFrom(
+                ),
+                onPressed: (){},
+                child: Text('会員登録はこちら',style: GoogleFonts.mochiyPopOne(
+                  color: Colors.grey,
+                  decoration: TextDecoration.underline,
+                  decorationColor: Colors.grey,
+                ),),
+              ),
+
+              Divider(),
+
+              const SizedBox(height: 20,),
+
+              Container(
+                height: 100,
+                width: 300,
+                color: Colors.red,
+                child: Center(child: Text('Google連携ボタン')),
               )
+              
             ],
           ),
         ),
