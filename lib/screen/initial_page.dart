@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:tooth_spot/screen/login_page.dart';
 
 class InitialPage extends StatefulWidget {
   const InitialPage({super.key});
@@ -20,7 +22,7 @@ class _InitialPageState extends State<InitialPage> {
               Container(
                 width: double.infinity,
                 height: screenSize.height*1.0,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   image: DecorationImage(
                     image: AssetImage('assets/images/Background_theme.png'),
                     fit: BoxFit.fill,
@@ -30,15 +32,22 @@ class _InitialPageState extends State<InitialPage> {
 
               ///スタートボタン
               Positioned(
-                top: screenSize.height*0.6,
-                left: 0,
-                height: screenSize.height*0.2,
-                width: screenSize.width*1.0,
-                child: Container(
-                  width: double.infinity,
-                  height: screenSize.height*0.2,
-                  color: Colors.yellow,
-                  child: Center(child: Text('button設置')),
+                top: screenSize.height*0.75,
+                left: screenSize.width*0.25,
+                height: screenSize.height*0.06,
+                width: screenSize.width*0.5,
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.white,
+                  ),
+                  onPressed: (){
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context) =>  const LoginPage()));
+                  },
+                  child: Text('START',style: GoogleFonts.mochiyPopOne(
+                    color: Colors.red,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18,
+                  ),),
                 ),
               ),
             ]
