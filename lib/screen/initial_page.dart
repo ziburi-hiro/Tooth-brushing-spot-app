@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:tooth_spot/screen/login_page.dart';
+import 'package:tooth_spot/screen/Login&MemberRegistration/login_page.dart';
 
 class InitialPage extends StatefulWidget {
   const InitialPage({super.key});
