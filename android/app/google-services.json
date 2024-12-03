@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "752218555102",
+    "project_id": "tooth-brushing-spot",
+    "storage_bucket": "tooth-brushing-spot.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:752218555102:android:3d380a51edf48ab4f9384f",
+        "android_client_info": {
+          "package_name": "com.example.tooth_spot"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB6XNW0HG6KSxirEVMtYEjLNAGAdya7spQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
