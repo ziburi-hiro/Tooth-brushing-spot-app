@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_map/flutter_map.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:tooth_spot/constants/color.dart';
 
 class MapPage extends StatefulWidget {
@@ -10,31 +12,80 @@ class MapPage extends StatefulWidget {
 }
 
 class _MapPageState extends State<MapPage> {
+
+  late GoogleMapController mapController;
+
+  final LatLng _center = const LatLng(35.170915, 136.881537);
+
+  void _onMapCreated(GoogleMapController controller) {
+    mapController = controller;
+  }
+
   @override
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
     return PopScope(
       canPop: false,
       child: Scaffold(
-        // appBar: AppBar(
-        //   title: Text('MAP',style: GoogleFonts.mochiyPopOne(
-        //     color: Colors.white,
-        //     fontWeight: FontWeight.bold,
-        //   )),
-        //   backgroundColor: mainColor,
-        //   iconTheme: const IconThemeData(
-        //       color: Colors.white
-        //   ),
-        // ),
-
         body: Stack(
           children: [
             ///全体に地図表示
-            Container(
-              width: double.infinity,
-              height: double.infinity,
-              color: Colors.yellow,
+            ///現在の位置情報の表示はできていない
+            ///GoogleAPI:AIzaSyBRZYLw57lb3bydMrAVhFr6QSqnCGWxmmg
+            GoogleMap(
+              onMapCreated: _onMapCreated,
+              initialCameraPosition: CameraPosition(
+                target: _center,
+                zoom: 11.0,
+              ),
             ),
+            // FlutterMap(
+            //   options: const MapOptions(
+            //     // 名古屋駅の緯度経度です。
+            //     initialCenter: LatLng(35.170915, 136.881537),
+            //     initialZoom: 15.0,
+            //   ),
+            //   children: [
+            //     TileLayer(
+            //       urlTemplate: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+            //     ),
+            //     const MarkerLayer(
+            //       markers: [
+            //         Marker(
+            //           width: 30.0,
+            //           height: 30.0,
+            //           // ピンの位置を設定
+            //           point: LatLng(35.30203, 136.79676),
+            //           child: Icon(
+            //             Icons.location_on,
+            //             color: Colors.red,
+            //             // ここでピンのサイズを調整
+            //             size: 30,
+            //           ),
+            //           // マップを回転させた時にピンも回転するのが rotate: false,
+            //           // マップを回転させた時にピンは常に同じ向きなのが rotate: true,
+            //           rotate: true,
+            //         ),
+            //
+            //         Marker(
+            //           width: 30.0,
+            //           height: 30.0,
+            //           // ピンの位置を設定
+            //           point: LatLng(35.170915, 136.881537),
+            //           child: Icon(
+            //             Icons.location_on,
+            //             color: Colors.red,
+            //             // ここでピンのサイズを調整
+            //             size: 30,
+            //           ),
+            //           // マップを回転させた時にピンも回転するのが rotate: false,
+            //           // マップを回転させた時にピンは常に同じ向きなのが rotate: true,
+            //           rotate: true,
+            //         ),
+            //       ],
+            //     ),
+            //   ],
+            // ),
 
             ///QR読み込みボタン
             Positioned(
@@ -79,6 +130,7 @@ class _MapPageState extends State<MapPage> {
                 height: 50,
                 width: 50,
                 child: FloatingActionButton(
+                  heroTag: 'btn1',
                   mini: true,
                   backgroundColor: mainColor,
                   elevation: 0,
@@ -100,6 +152,7 @@ class _MapPageState extends State<MapPage> {
               height: 50,
               width: 50,
               child: FloatingActionButton(
+                heroTag: 'btn2',
                 mini: true,
                 backgroundColor: mainColor,
                 elevation: 0,
@@ -121,6 +174,7 @@ class _MapPageState extends State<MapPage> {
                 height: 50,
                 width: 50,
                 child: FloatingActionButton(
+                  heroTag: 'btn3',
                   mini: true,
                   backgroundColor: mainColor,
                   elevation: 0,
@@ -142,6 +196,7 @@ class _MapPageState extends State<MapPage> {
                 height: 50,
                 width: 50,
                 child: FloatingActionButton(
+                  heroTag: 'btn4',
                   mini: true,
                   backgroundColor: mainColor,
                   elevation: 0,
@@ -155,7 +210,6 @@ class _MapPageState extends State<MapPage> {
                   ),
                 )
             ),
-
           ],
         ),
       ),
