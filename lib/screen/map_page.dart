@@ -50,6 +50,7 @@ class _MapPageState extends State<MapPage> {
               ),
               // 現在位置にアイコン（青い円形のやつ）を置く
               myLocationEnabled: true,
+              myLocationButtonEnabled: false,
 
               //SPOTの位置のマーカ
               markers: {
