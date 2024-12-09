@@ -4,6 +4,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:tooth_spot/constants/color.dart';
 import 'package:tooth_spot/models/account.dart';
 import 'package:tooth_spot/screen/help_page.dart';
+import 'package:tooth_spot/screen/payment_method_page.dart';
+import 'package:tooth_spot/screen/usage_history_page.dart';
 import 'package:tooth_spot/utils/authentication.dart';
 
 class MyPage extends StatefulWidget {
@@ -98,36 +100,97 @@ class _MyPageState extends State<MyPage> {
                     height: screenSize.height*0.15,
                     width: screenSize.width*0.8,
                     decoration: BoxDecoration(
-                      color: Colors.grey,
+                      color: mainColor,
                       borderRadius: BorderRadius.circular(20),
                     ),
-                    child: const Center(child: Text('今月の利用回数/料金')),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text('今月の利用回数 : ',style: GoogleFonts.mochiyPopOne(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20,
+                            ),),
+                            Text('2回',style: GoogleFonts.mochiyPopOne(
+                            color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20,
+                            ),)
+                          ],
+                        ),
+
+                        const SizedBox(
+                          height: 20,
+                        ),
+
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text('今月の利用料金 : ',style: GoogleFonts.mochiyPopOne(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20,
+                            ),),
+                            Text('¥XXX',style: GoogleFonts.mochiyPopOne(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20,
+                            ),)
+                          ],
+                        )
+                      ],
+                    ),
                   ),
 
                   const SizedBox(height: 30,),
 
                   ///決済方法
-                  Container(
+                  SizedBox(
                     height: screenSize.height*0.10,
                     width: screenSize.width*0.8,
-                    decoration: BoxDecoration(
-                      color: Colors.grey,
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: const Center(child: Text('決済方法')),
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        shape: const RoundedRectangleBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(10)),
+                        ),
+                        backgroundColor: mainColor
+                      ),
+                      onPressed: (){
+                        Navigator.of(context).push(MaterialPageRoute(builder: (context) => const PaymentMethodPage()));
+                      },
+                      child: Text('決済方法',style: GoogleFonts.mochiyPopOne(
+                        fontSize: 20,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold
+                      ),),
+                    )
                   ),
 
                   const SizedBox(height: 30,),
 
                   ///利用履歴
-                  Container(
-                    height: screenSize.height*0.10,
-                    width: screenSize.width*0.8,
-                    decoration: BoxDecoration(
-                      color: Colors.grey,
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: const Center(child: Text('利用履歴')),
+                  SizedBox(
+                      height: screenSize.height*0.10,
+                      width: screenSize.width*0.8,
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                            shape: const RoundedRectangleBorder(
+                              borderRadius: BorderRadius.all(Radius.circular(10)),
+                            ),
+                            backgroundColor: mainColor
+                        ),
+                        onPressed: (){
+                          Navigator.of(context).push(MaterialPageRoute(builder: (context) => const UsageHistoryPage()));
+                        },
+                        child: Text('利用履歴',style: GoogleFonts.mochiyPopOne(
+                            fontSize: 20,
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold
+                        ),),
+                      )
                   ),
 
                   const SizedBox(height: 30,),
