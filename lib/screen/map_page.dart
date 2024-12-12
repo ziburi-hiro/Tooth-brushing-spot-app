@@ -3,6 +3,10 @@ import 'package:geolocator/geolocator.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:tooth_spot/constants/color.dart';
+import 'package:tooth_spot/screen/help_page.dart';
+import 'package:tooth_spot/screen/mypage.dart';
+import 'package:tooth_spot/screen/qr_scan_page.dart';
+import 'package:tooth_spot/screen/search_page.dart';
 
 class MapPage extends StatefulWidget {
   const MapPage({super.key});
@@ -133,7 +137,7 @@ class _MapPageState extends State<MapPage> {
                 ),
                 onPressed: (){
                   ///カメラ起動を実装
-                  //Navigator.of(context).push(MaterialPageRoute(builder: (context) =>  const LoginPage()));
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context) =>  const QrScanPage()));
                 },
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -167,7 +171,7 @@ class _MapPageState extends State<MapPage> {
                   elevation: 0,
                   highlightElevation: 0,
                   onPressed: (){
-
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => const SearchPage()));
                   },
                   child: const Icon(
                     Icons.search,
@@ -219,7 +223,7 @@ class _MapPageState extends State<MapPage> {
                   elevation: 0,
                   highlightElevation: 0,
                   onPressed: (){
-
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => const HelpPage()));
                   },
                   child: const Icon(
                     Icons.help_outline,
@@ -241,7 +245,7 @@ class _MapPageState extends State<MapPage> {
                   elevation: 0,
                   highlightElevation: 0,
                   onPressed: (){
-
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => const MyPage()));
                   },
                   child: const Icon(
                     Icons.person,
