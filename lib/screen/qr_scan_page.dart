@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:tooth_spot/constants/color.dart';
+import 'package:mobile_scanner/mobile_scanner.dart';
 
 class QrScanPage extends StatefulWidget {
   const QrScanPage({super.key});
@@ -9,7 +10,9 @@ class QrScanPage extends StatefulWidget {
   State<QrScanPage> createState() => _QrScanPageState();
 }
 
-class _QrScanPageState extends State<QrScanPage> {
+class _QrScanPageState extends State<QrScanPage> with SingleTickerProviderStateMixin{
+  MobileScannerController scannerController = MobileScannerController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,6 +25,15 @@ class _QrScanPageState extends State<QrScanPage> {
         iconTheme: const IconThemeData(
             color: Colors.white
         ),
+      ),
+
+      body: Builder(
+        builder: (context) {
+          return MobileScanner(
+            controller: scannerController,
+            fit: BoxFit.contain,
+          );
+        },
       ),
     );
   }

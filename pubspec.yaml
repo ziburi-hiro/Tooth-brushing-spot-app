@@ -46,6 +46,7 @@ dependencies:
   google_maps_flutter: ^2.10.0
   latlng: ^2.0.7
   lottie: ^2.7.0
+  mobile_scanner: ^6.0.2
 
 dev_dependencies:
   flutter_test:
