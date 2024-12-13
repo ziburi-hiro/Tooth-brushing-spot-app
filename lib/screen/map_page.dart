@@ -72,6 +72,21 @@ class _MapPageState extends State<MapPage> {
                   markerId: MarkerId('SPOT3'),
                   position: LatLng(37.79569, -122.39374),
                 ),
+
+                const Marker(
+                  markerId: MarkerId('SPOT4'),
+                  position: LatLng(35.30218, 136.79545),
+                ),
+
+                const Marker(
+                  markerId: MarkerId('SPOT5'),
+                  position: LatLng(35.30228, 136.79550),
+                ),
+
+                const Marker(
+                  markerId: MarkerId('SPOT6'),
+                  position: LatLng(35.30333, 136.79974),
+                ),
               },
             ),
             // FlutterMap(
